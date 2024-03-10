@@ -1,4 +1,5 @@
 *
 !.gitignore
 !boj
+!jungol
 !*.cpp
