@@ -1,41 +1,41 @@
 #include <cstdio>
-#include <algorithm>
+#include <cmath>
 
-int O[100001];
+using ll=long long;
+constexpr int LM = 100005;
+
+ll A[LM];
 
 int main() {
 	int N;
 	scanf("%d", &N);
 
 	for (int i = 0; i < N; i++) {
-		int num;
-		scanf("%d ", &num);
-		
-		O[i] = num; // original
+		scanf("%lld", &A[i]);
 	}
 
-	
-	std::sort(O, O + N, [](const int& a, const int &b) {
-		int c = abs(a);
-		int d = abs(b);
-		return c < d;
-	});
+	int l=0, r=N-1;
 
+	int res = abs(A[l] + A[r]);
+	ll ansA = A[l];
+	ll ansB = A[r];
 
+	while(l<r) {
+		int tmp = A[l]+A[r];
 
-	int ans = 1100000000;
-	int candA, candB;
-	for (int i = 0; i < N-1; i++) {
-			int num = abs(O[i+1] + O[i]);
-			if (num < ans) {
-				candA = O[i] < O[i + 1] ? O[i] : O[i + 1];
-				candB = O[i] > O[i + 1] ? O[i] : O[i + 1];
+		if(abs(tmp) < res) {
+			res = abs(tmp);
+			ansA = A[l];
+			ansB = A[r];
+		}
 
-				ans = num;
-			}
+		if(tmp < 0) l++;
+		else r--;
+
 	}
 
-	printf("%d %d", candA, candB);
+	printf("%lld %lld", ansA, ansB);
 
 	return 0;
 }
+
