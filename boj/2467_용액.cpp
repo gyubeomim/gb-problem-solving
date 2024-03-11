@@ -1,42 +1,41 @@
 #include <cstdio>
 #include <algorithm>
 
-using namespace std;
-constexpr int LM = 100005;
+int O[100001];
 
-int A[LM];
-int N;
-
-int main(int argc, char **argv){
+int main() {
+	int N;
 	scanf("%d", &N);
 
-	for(int i=0; i<N; i++){ 
-		scanf("%d", &A[i]);
+	for (int i = 0; i < N; i++) {
+		int num;
+		scanf("%d ", &num);
+		
+		O[i] = num; // original
 	}
 
-	sort(A, A+N, [](const int&a, const int&b){
-			int c = abs(a);
-			int d = abs(b);
+	
+	std::sort(O, O + N, [](const int& a, const int &b) {
+		int c = abs(a);
+		int d = abs(b);
+		return c < d;
+	});
 
-			return c < d;
-			});
 
-	int ansA, ansB;
-	int sum=0, total=1100000000;
 
-	for(int i=0; i<N-1;i++){
-		sum = abs(A[i] + A[i+1]);
+	int ans = 1100000000;
+	int candA, candB;
+	for (int i = 0; i < N-1; i++) {
+			int num = abs(O[i+1] + O[i]);
+			if (num < ans) {
+				candA = O[i] < O[i + 1] ? O[i] : O[i + 1];
+				candB = O[i] > O[i + 1] ? O[i] : O[i + 1];
 
-		if(sum < total) {
-			total = sum;
-			ansA = A[i] < A[i+1] ? A[i] : A[i+1];
-			ansB = A[i] > A[i+1] ? A[i] : A[i+1];
-		}
-
-		if(total==0) break;
+				ans = num;
+			}
 	}
 
-	printf("%d %d", ansA, ansB);
+	printf("%d %d", candA, candB);
 
 	return 0;
 }
