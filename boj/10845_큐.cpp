@@ -35,10 +35,6 @@ void back() {
 }
 
 int main() {
-#ifdef _WIN32
-	freopen("D2.txt", "r", stdin);
-#endif // _WIN32
-
 	scanf("%d", &N);
 
 	char cmd[100];
