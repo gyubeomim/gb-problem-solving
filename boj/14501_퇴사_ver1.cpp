@@ -1,3 +1,4 @@
+// 일반적인 DFS로 푼 예제
 #include <bits/stdc++.h>
 using namespace std;
 
