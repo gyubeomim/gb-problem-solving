@@ -14,11 +14,11 @@ bool visited[LM][LM];
 int ans;
 
 void solution() {
-	for(int mask = 0; mask < (1<<(N*M)); mask++) {
-		int sum=0;
+	for(int mask=0; mask < (1<<N*M) ; mask++) {
+		int sum = 0;
 
-		for(int r=0; r<N;r++){
-			int tmp=0;
+		for(int r=0; r<N; r++){
+			int tmp = 0;
 			for(int c=0; c<M; c++){
 				int k = r*M + c;
 				if((mask & (1<<k)) == 0) tmp = tmp*10 + arr[r][c];
@@ -30,8 +30,8 @@ void solution() {
 			sum += tmp;
 		}
 
-		for(int c=0; c<M;c++){
-			int tmp=0;
+		for(int c=0; c<M; c++){
+			int tmp = 0;
 			for(int r=0; r<N; r++){
 				int k = r*M + c;
 				if((mask & (1<<k)) == 1) tmp = tmp*10 + arr[r][c];
@@ -42,10 +42,11 @@ void solution() {
 			}
 			sum += tmp;
 		}
-		
+
 		ans = max(ans, sum);
 	}
-	return;
+
+	return; 
 }
 
 int main(int argc, char **argv){
