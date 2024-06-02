@@ -9,6 +9,7 @@ using ll = long long;
 
 constexpr int LM=1000005;
 int A[LM];
+stack<int> S;
 
 int main(int argc, char **argv){
 	int N;
@@ -17,18 +18,20 @@ int main(int argc, char **argv){
 	for(int i=0; i<N; i++){
 		scanf("%d", &A[i]);
 	}
-	
-	for(int i=0; i<N; i++){
-		bool found = false;
-		for(int j=i+1; j<N; j++){
-			if(A[i] < A[j]) {
-				found = true;
-				printf("%d ", A[j]);
-				break;
-			}
-		}
-		if(!found) printf("-1 ");
+		
+	int NGE[LM] = {0};
+
+	for(int i=N-1; i>=0; i--) {
+		while(!S.empty() && S.top() <= A[i]) 
+				S.pop();
+		 
+		if(S.empty()) NGE[i] = -1;
+		else          NGE[i] = S.top();
+
+		S.push(A[i]);
 	}
 
-
+	for(int i=0; i<N; i++){
+		printf("%d ", NGE[i]);
+	}
 }
