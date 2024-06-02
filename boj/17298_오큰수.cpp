@@ -7,14 +7,28 @@ using namespace std;
 using pii = pair<int,int>;
 using ll = long long;
 
+constexpr int LM=1000005;
+int A[LM];
+
 int main(int argc, char **argv){
 	int N;
 	scanf("%d", &N);
+
+	for(int i=0; i<N; i++){
+		scanf("%d", &A[i]);
+	}
 	
-	ll ans=1;
-	for(int i=1; i<=N; i++){
-		ans *= i;
+	for(int i=0; i<N; i++){
+		bool found = false;
+		for(int j=i+1; j<N; j++){
+			if(A[i] < A[j]) {
+				found = true;
+				printf("%d ", A[j]);
+				break;
+			}
+		}
+		if(!found) printf("-1 ");
 	}
 
-	printf("%lld", ans);
+
 }
