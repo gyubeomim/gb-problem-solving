@@ -2,4 +2,5 @@
 !.gitignore
 !boj
 !jungol
+!algospot
 !*.cpp
