@@ -1,6 +1,9 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// 카라츠바 시간복잡도: O(n^log3) ~= O(O^1.585)
+// 단순히 두 큰 수를 곱하는 O(n^2)보다 훨씬 적은 곱셈을 필요로 한다
+
 // num[]의 자리수 올림을 처리한다
 void normalize(vector<int>& num){
     num.push_back(0);
