@@ -40,16 +40,17 @@ vector<int> multiply(const vector<int>& a, const vector<int>& b) {
 }
 
 int main(int argc, char **argv){
-	vector<int> a,b;
-	a.push_back(4);
-	a.push_back(3);
-	a.push_back(2);
-	a.push_back(1);
+	string s1, s2;
+	s1 = "1234";
+	s2 = "5678";
 
-	b.push_back(8);
-	b.push_back(7);
-	b.push_back(6);
-	b.push_back(5);
+	vector<int> a, b;
+	for(int i = s1.size()-1; i >= 0; i--){
+		a.push_back(s1[i] - '0');
+	}
+	for(int i = s2.size()-1; i >= 0; i--){
+		b.push_back(s2[i] - '0');
+	}
 
 	vector<int> c = multiply(a,b);
 

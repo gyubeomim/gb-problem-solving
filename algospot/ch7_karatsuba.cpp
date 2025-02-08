@@ -108,11 +108,10 @@ vector<int> karatsuba(const vector<int>& a, const vector<int>& b) {
 }
 
 int main(){
-    FASTIO;
     string s1, s2;
-    cin >> s1 >> s2;
+		s1 = "1234";
+		s2 = "5678";
 
-    // 문자열을 뒤집어서(LSB가 인덱스0) vector<int>에 저장
     vector<int> a, b;
     for(int i = s1.size()-1; i >= 0; i--){
         a.push_back(s1[i] - '0');
@@ -131,9 +130,7 @@ int main(){
 
     // 정상적인(가장 큰 자리부터) 순서로 출력
     for(int i = result.size()-1; i >= 0; i--){
-        cout << result[i];
+        printf("%d", result[i]);
     }
-    cout << '\n';
-
-    return 0;
+    puts("");
 }
