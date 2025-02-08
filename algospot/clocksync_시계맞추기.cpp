@@ -15,8 +15,8 @@ constexpr int CLOCKS = 16;
 // linked[i][j] = '.' : i번 스위치가 j번 시계가 연결되어 있지 않다
 const char linked[SWITCHES][CLOCKS+1] = {
 	// 0123456789012345
-	  "xxx.............",
-	  "...x...x.x.x....",
+		"xxx.............",
+		"...x...x.x.x....",
 		"....x.....x...xx",
 		"x...xxxx........",
 		"......xxx.x.x...",
