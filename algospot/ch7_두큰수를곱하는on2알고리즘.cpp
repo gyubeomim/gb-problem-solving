@@ -1,11 +1,5 @@
 #include <bits/stdc++.h>
-#define rnt register int
-#define FASTIO cin.tie(0); cout.tie(0); ios_base::sync_with_stdio(0);
-#define WATCH(x) cout << #x << " : " << x << '\n';
-#define PRINT(x) cout << x << '\n';
 using namespace std;
-using pii = pair<int,int>;
-using ll = long long;
 
 // num[]의 자리수 올림을 처리한다
 void normalize(vector<int>& num){
