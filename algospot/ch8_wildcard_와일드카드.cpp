@@ -7,6 +7,8 @@ using namespace std;
 using pii = pair<int,int>;
 using ll = long long;
 
+string W,S;
+
 // solution #1
 bool match(const string& w, const string& s){
 	// w[pos]와 s[pos]를 맞춰나간다
@@ -37,7 +39,6 @@ bool match(const string& w, const string& s){
 // 1: 해당 입력들이 서로 대응됨
 // 0: 해당 입력들이 서로 대응되지 않음
 int dp[105][105];
-string W,S;
 
 bool match2(int w, int s){
 	int& ret = dp[w][s];
