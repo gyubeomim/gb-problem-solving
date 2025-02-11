@@ -34,7 +34,9 @@ int minError(int lo, int hi) {
 	return ret;
 }
 
-int dp[105][15];   // dp[from][parts] : from번째 이후 숫자들을 parts개 묶음으로 묶을 때 최소 오류 제곱 합
+int dp[105][15];   
+// dp[from][parts] : from번째 이후 숫자들을 parts개 묶음으로 묶을 때 최소오류제곱 합
+// ret = min(ret, minError(from, from+p-1) + quantize(from+p, parts-1));
 
 int quantize(int from, int parts) {
 	// 기저 사례: 모든 숫자들을 다 양자화했을 때
