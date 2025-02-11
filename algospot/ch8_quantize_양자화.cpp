@@ -6,7 +6,7 @@ constexpr int INF = 987654321;
 // pSum[]: A[]의 부분합을 저장한다. pSum[i]는 A[0] + ... + A[i]의 합
 // pSqSum[]: A[] 제곱의 부분합을 저장한다. pSqSum[i]는 A[0]^2 + ... + A[i]^2의 합
 int N, S;
-int A[101], pSum[101], pSqSum[101];
+int A[105], pSum[105], pSqSum[105];
 
 // A를 정렬하고 각 부분합을 계산한다
 void precalc(){
@@ -34,13 +34,13 @@ int minError(int lo, int hi) {
 	return ret;
 }
 
-int dp[101][11];
+int dp[105][15];   // dp[from][parts] : from번째 이후 숫자들을 parts개 묶음으로 묶을 때 최소 오류 제곱 합
 
 int quantize(int from, int parts) {
 	// 기저 사례: 모든 숫자들을 다 양자화했을 때
 	if(from == N) return 0;
 
-	// 기저 사례: 숫자는 아직 남았는데 더 묶을 수 없을 떄 아주 큰 값을 반환한다
+	// 기저 사례: 숫자는 아직 남았는데 더 묶을 수 없을 때 아주 큰 값을 반환한다
 	if(parts == 0) return INF;
 
 	int& ret = dp[from][parts];
