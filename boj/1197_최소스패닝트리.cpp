@@ -23,6 +23,7 @@ int main() {
 		adj[b].push_back({ cost,a });
 	}
 
+	// Prim algorithm 
 	priority_queue<tiii, vector<tiii>, greater<tiii>> pq;   // pq[i] = { cost, vertex_id1, vertex_id2 }
 
 	chk[1] = 1;
