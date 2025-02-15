@@ -1,10 +1,5 @@
 #include <bits/stdc++.h>
-#define rnt register int
-#define FASTIO cin.tie(0); cout.tie(0); ios_base::sync_with_stdio(0);
-#define WATCH(x) cout << #x << " : " << x << '\n';
-#define PRINT(x) cout << x << '\n';
 using namespace std;
-using pii = pair<int,int>;
 using ll = long long;
 
 const int LM = 10005;
@@ -12,6 +7,7 @@ const int LM = 10005;
 int N,K;
 int A[LM];
 
+// Parametric search
 bool solve(ll x){
 	ll cur = 0;
 	for(int i=0;i<K;i++) 
