@@ -2,17 +2,17 @@
 #include <string>
 using namespace std;
 
+int freq[26];
 
 int main(int argc, char **argv){
 	string S;
 	cin >> S;
+	
+	for(auto c : S) 
+		freq[c-'a']++;
 
-	for(char c='a'; c<='z'; c++) {
-		int cnt=0;
-		for(char s : S) 
-			if(s == c) cnt++;
-		cout << cnt << ' ';
+	for(int i=0;i<26;i++){
+		printf("%d ", freq[i]);
 	}
-
-	return 0;
+	puts("");
 }
