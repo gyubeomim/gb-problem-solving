@@ -1,15 +1,10 @@
 #include <bits/stdc++.h>
-
-#define rnt register int
 using namespace std;
 
-using pii = pair<int,int>;
-using ll = long long;
-
 constexpr int LM = 30;
-int arr[LM] = { 0 };
-int visited[LM] = { 0 };
-int ans = 0;
+
+int arr[LM];
+int ans;
 int N, S;
 
 void solve( int idx, int tot ) {
