@@ -22,7 +22,7 @@ void solve( int cur ) {
   }
 
   for ( int i = 0; i < N; i++ ) {
-    if ( used1[i] || used2[i] || used3[i] ) continue;
+    if ( used1[i] || used2[i + cur] || used3[cur - i + N - 1] ) continue;
 
     used1[i] = 1;
     used2[i + cur] = 1;
