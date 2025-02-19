@@ -6,32 +6,28 @@ using namespace std;
 using pii = pair<int,int>;
 using ll = long long;
 
-constexpr int LM =25;
-int arr[LM] = {0};
-int visited[LM] = {0};
+constexpr int LM = 30;
+int arr[LM] = { 0 };
+int visited[LM] = { 0 };
 int ans = 0;
-int N,S;
+int N, S;
 
-void backTracking(int idx, int tmp) {
-	if(idx==N) return;
-	if(tmp + arr[idx] == S) ans++;
+void solve( int idx, int tot ) {
+  if ( idx == N ) {
+    if ( tot == S ) ans++;
+    return;
+  }
 
-	backTracking(idx+1, tmp);          // 현재 원소를 더하지 않을 때 
-	backTracking(idx+1, tmp+arr[idx]); // 현재 원소를 더할 때
+  solve( idx + 1, tot );             // 현재 원소를 더하지 않을 때
+  solve( idx + 1, tot + arr[idx] );  // 현재 원소를 더할 때
 }
 
-int main(int argc, char **argv){
-	cin.tie(0)->sync_with_stdio(false);
+int main( int argc, char **argv ) {
+  scanf( "%d %d", &N, &S );
+  for ( int i = 0; i < N; i++ )
+    scanf( "%d", &arr[i] );
 
-	scanf("%d %d", &N, &S);
-
-	for(int i=0;i<N;i++){
-		scanf("%d", &arr[i]);
-	}
-
-	backTracking(0,0);
-
-	printf("%d",ans);
-
-	return 0;
+  solve( 0, 0 );
+  if ( S == 0 ) ans--;
+  printf( "%d", ans );
 }
