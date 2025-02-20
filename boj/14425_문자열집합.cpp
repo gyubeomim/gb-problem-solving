@@ -1,12 +1,5 @@
+// 문자열 집합 boj.kr/14425
 #include <bits/stdc++.h>
-#define rnt register int
-#define FASTIO cin.tie(0); cout.tie(0); ios_base::sync_with_stdio(0);
-#define WATCH(x) cout << #x << " : " << x << '\n';
-#define PRINT(x) cout << x << '\n';
-#define X first
-#define Y second
-using pii = std::pair<int,int>;
-using ll = long long;
 using namespace std;
 
 const int LM = 500 * 10000 + 5;  // 최대 등장 가능한 글자의 수 (길이 500인 문자열 10000개)
