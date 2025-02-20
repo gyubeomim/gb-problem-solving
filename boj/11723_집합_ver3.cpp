@@ -17,22 +17,22 @@ int main( int argc, char **argv ) {
       cin >> x;
       state |= ( 1 << ( x - 1 ) );
     } 
-		else if ( com == "remove" ) {
+    else if ( com == "remove" ) {
       cin >> x;
       state &= ( ~( 1 << ( x - 1 ) ) );
     } 
-		else if ( com == "check" ) {
+    else if ( com == "check" ) {
       cin >> x;
       printf( "%d\n", ( ( state >> ( x - 1 ) ) & 1 ) );
     } 
-		else if ( com == "toggle" ) {
+    else if ( com == "toggle" ) {
       cin >> x;
       state ^= ( 1 << ( x - 1 ) );
     } 
-		else if ( com == "all" ) {
+    else if ( com == "all" ) {
       state = 0xfffff;
     } 
-		else {  // empty
+    else {  // empty
       state = 0;
     }
   }
