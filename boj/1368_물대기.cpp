@@ -1,13 +1,5 @@
 #include <bits/stdc++.h>
-#define rnt register int
-#define FASTIO cin.tie(0); cout.tie(0); ios_base::sync_with_stdio(0);
-#define WATCH(x) cout << #x << " : " << x << '\n';
-#define PRINT(x) cout << x << '\n';
-#define X first
-#define Y second
-using pii = std::pair<int,int>;
 using tiii = std::tuple<int,int,int>;
-using ll = long long;
 using namespace std;
 
 const int LM = 100005;
@@ -26,9 +18,9 @@ bool isDiffGroup( int u, int v ) {
   u = find( u ), v = find( v );
   if ( u == v ) return 0;
 
+  if ( p[u] < p[v] ) swap( u, v );
   if ( p[u] == p[v] ) p[u]--;
-  if ( p[u] < p[v] )  p[v] = u;
-  else  p[u] = v;
+  p[v] = u;
 
   return 1;
 }
