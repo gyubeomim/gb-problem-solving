@@ -23,7 +23,8 @@ int main( int argc, char **argv ) {
     } 
     else if ( com == "check" ) {
       cin >> x;
-      printf( "%d\n", ( ( state >> ( x - 1 ) ) & 1 ) );
+      bool ck = ( state >> ( x - 1 ) ) & 1;
+      printf( "%d\n", ck );
     } 
     else if ( com == "toggle" ) {
       cin >> x;
