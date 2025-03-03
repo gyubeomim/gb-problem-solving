@@ -15,6 +15,9 @@ int conn[LM][LM], deg[LM];
 
 // search3(here, days) = sum_{there in adj(here)} 1/adj(there) * search3(there, days-1)
 // adj(here) : here와 연결된 도시들의 집합
+// 시간복잡도: O(n^2d)
+// O(nd)개의 문제를 각각 O(n) 시간에 해결
+// t에 대한 시간복잡도가 사라짐
 double search3( int here, int days ) {
   if ( days == 0 ) return ( here == P ? 1.0 : 0.0 );
 
