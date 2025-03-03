@@ -3,6 +3,9 @@ using namespace std;
 
 vector<int> russian, korean;
 
+// 시간복잡도: O(nlogn)
+// 선수의 수 : O(n)
+// 탐색, 삭제: O(logn)
 int solve() {
   int wins = 0;
 
