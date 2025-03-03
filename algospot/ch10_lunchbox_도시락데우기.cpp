@@ -9,6 +9,9 @@ const int LM = 10005;
 int N;
 int E[LM], M[LM];
 
+// 시간복잡도: O(nlogn)
+// 정렬: O(logn)
+// 시뮬레이션: O(n)
 int heat() {
   vector<pii> order;
   for ( int i = 0; i < N; i++ )
