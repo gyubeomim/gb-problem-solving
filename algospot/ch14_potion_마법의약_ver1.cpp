@@ -3,6 +3,10 @@ using namespace std;
 
 int N;
 
+int ceil( int a, int b ) {
+	return ( a + b - 1 ) / b;
+}
+
 // 마법의약 레시피와 이미 넣은 재료의 양이 주어질 때 더 넣을 재료의 양을 구한다
 vector<int> solve( vector<int> recipe, vector<int> put ) {
   vector<int> ret( N );
@@ -23,7 +27,7 @@ vector<int> solve( vector<int> recipe, vector<int> put ) {
       for ( int j = 0; j < N; j++ ) {
 				// i번째 재료에 의하면 모든 재료는 put[i]/recipe[i] = X배 이상은 넣어야 한다
 				// 따라서 put[j]는 recipe[j]*X 이상의 정수가 되어야 한다
-        int required = ( put[i] * recipe[j] + recipe[i] - 1 ) / recipe[i];
+				int required = ceil( put[i] * recipe[j], recipe[i] );
 
 				// 더 넣어야 하는가?
         if ( required > put[j] ) {
