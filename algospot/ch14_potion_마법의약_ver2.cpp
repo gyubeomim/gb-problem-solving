@@ -7,22 +7,26 @@ int gcd( int a, int b ) {
   return b == 0 ? a : gcd( b, a % b );
 }
 
+// 올림나눗셈
 int ceil( int a, int b ) {
   return ( a + b - 1 ) / b;
 }
 
 vector<int> solve2( vector<int> recipe, vector<int> put ) {
   int b = recipe[0];
-
+	
+	// 모든 recipe의 최대공약수를 구한다
   for ( int i = 1; i < N; i++ ) b = gcd( b, recipe[i] );
 
   int a = b;
-
+	
+	// x를 직접 구하는 대신 ceil(put[i]*b, recipe[i])의 최대값을 구한다
   for ( int i = 0; i < N; i++ ) {
     a = max( a, ceil( put[i] * b, recipe[i] ) );
   }
-
-  vector<int> ret;
+	
+	// a/b배 분량을 만들면 된다
+	vector<int> ret( N );
   for ( int i = 0; i < N; i++ ) {
     ret[i] = recipe[i] * a / b - put[i];
   }
