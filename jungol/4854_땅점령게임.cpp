@@ -21,15 +21,15 @@ int main(int argc, char **argv){
 			cnt[user]++;
 		}
 		else {
-			if(it->second == user) {
+			if(it->Y == user) {
 				cnt[user]--;
 				hmap.erase(it);
 			}
 			else {
-				if(cnt[user] < cnt[it->second]){
+				if(cnt[user] < cnt[it->Y]){
 					cnt[user]++;
-					cnt[it->second]--;
-					it->second = user;
+					cnt[it->Y]--;
+					it->Y = user;
 				}
 			}
 		}

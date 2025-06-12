@@ -64,9 +64,9 @@ int main(int argc, char **argv){
 	}
 
 	sort(len.begin(), len.end(), [](const pii&a, const pii&b) {
-			if(a.second==b.second) return a.first < b.first;
-			else return a.second > b.second;
+			if(a.Y==b.Y) return a.X < b.X;
+			else return a.Y > b.Y;
 			});
 
-	printf("%d %d\n", len[0].first, len[0].second);
+	printf("%d %d\n", len[0].X, len[0].Y);
 }

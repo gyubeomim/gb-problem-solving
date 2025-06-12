@@ -7,7 +7,7 @@ map<int, int> coords;
 bool isDominated(int x, int y){
   map<int, int>::iterator it = coords.lower_bound(x);
   if(it == coords.end()) return false;
-  return y < it->second;
+  return y < it->Y;
 }
 
 void removeDominated(int x, int y){
@@ -19,7 +19,7 @@ void removeDominated(int x, int y){
   while(1){
     // (x,y) 바로 왼쪽에 있는 점을 찾는다. 
     // it가 표시하는 점이 (x,y)에 의해 지배당하지 않는다면 종료
-    if(it->second > y) break;
+    if(it->Y > y) break;
 
     // 이전 점이 더 없으므로 it만 지우고 종료한다
     if(it == coords.begin()) {

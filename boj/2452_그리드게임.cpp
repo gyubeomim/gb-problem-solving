@@ -46,8 +46,8 @@ void floodFill(int r, int c) {
 		que.pop();
 
 		for (int i = 0; i < 4; i++) {
-			int nr = t.first + dr[i];
-			int nc = t.second+ dc[i];
+			int nr = t.X + dr[i];
+			int nc = t.Y+ dc[i];
 
 			int &child = Map[nr][nc];
 
@@ -76,8 +76,8 @@ void BFS(int source) {
 	int u, lv;
 
 	while (!que.empty()) {
-		u = que.front().first;
-		lv = que.front().second;
+		u = que.front().X;
+		lv = que.front().Y;
 		que.pop();
 
 		for (auto &v : adj[u]) {
