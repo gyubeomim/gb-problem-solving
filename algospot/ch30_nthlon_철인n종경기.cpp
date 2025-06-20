@@ -75,7 +75,7 @@ int ans;
 int M;
 
 int main(int argc, char **argv){
-  //freopen("s_in_2233.txt", "r", stdin);
+  //freopen("s_in_2233.txt", "r", stdin); 
   int C; scanf("%d",&C);
   while(C--){
 	a.clear(); b.clear();
