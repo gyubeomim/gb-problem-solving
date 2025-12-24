@@ -2,6 +2,8 @@
 #include <vector>
 #include <queue>
 #include <unordered_set>
+#define X first
+#define Y second
 
 using namespace std;
 

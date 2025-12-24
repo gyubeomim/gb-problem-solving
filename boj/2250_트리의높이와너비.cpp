@@ -2,6 +2,9 @@
 #define rnt register int
 #define fasti cin.tie(0)->sync_with_stdio(0);
 #define fastio cin.tie(0)->sync_with_stdio(0); cout.tie(0);
+#define X first
+#define Y second
+
 using namespace std;
 using pii = pair<int,int>;
 using ll = long long;
