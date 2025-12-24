@@ -34,7 +34,7 @@ void solution() {
 			int tmp = 0;
 			for(int r=0; r<N; r++){
 				int k = r*M + c;
-				if((mask & (1<<k)) == 1) tmp = tmp*10 + arr[r][c];
+				if((mask & (1<<k))) tmp = tmp*10 + arr[r][c];
 				else {
 					sum += tmp;
 					tmp = 0;
