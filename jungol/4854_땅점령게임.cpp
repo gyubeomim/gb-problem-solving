@@ -1,4 +1,6 @@
 #include <bits/stdc++.h>
+#define X first
+#define Y second
 using ll = long long;
 using namespace std;
 
