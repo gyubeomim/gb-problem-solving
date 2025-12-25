@@ -17,14 +17,10 @@ int main( int argc, char **argv ) {
 
   int i, j;
   for ( i = 0; str[i]; i++ ) {
-    if ( str[i] == 'A' )
-      A[i] = w[0];
-    else if ( str[i] == 'C' )
-      A[i] = w[1];
-    else if ( str[i] == 'G' )
-      A[i] = w[2];
-    else
-      A[i] = w[3];
+    if ( str[i] == 'A' )       A[i] = w[0];
+    else if ( str[i] == 'C' )  A[i] = w[1];
+    else if ( str[i] == 'G' )  A[i] = w[2];
+    else                       A[i] = w[3];
   }
 
   N = i;
