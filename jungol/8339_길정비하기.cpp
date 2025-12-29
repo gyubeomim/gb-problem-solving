@@ -3,64 +3,69 @@
 #define FASTIO cin.tie(0); cout.tie(0); ios_base::sync_with_stdio(0);
 #define X first
 #define Y second
-using pii = std::pair<int,int>;
 using ll = long long;
+using tlii = std::tuple<ll, int, int>;
+using pii = std::pair<int, int>;
 using namespace std;
 
-const int LM = 10005;
-
-unordered_map<int, vector<int>> hmap;
+constexpr int NLM = 10005;
+constexpr int KLM = 21;
+constexpr ll INF = 0x3f3f3f3f3f3f3f3f;
 
 int N,M,K;
-vector<pii> adj[LM];
+vector<pii> adj[NLM];
+ll dist[NLM][KLM];
 
-pii que[50005];
-int visited[LM];
-int fr,re;
-
-void bfs(){
-	fr=re=0;
-
-	que[re++] = {1, 0};  // { node, weight }
-	visited[1] = 1;
-
-	while(fr<re){
-		pii cur = que[fr++];
-		int &u = cur.X;
-		int &w = cur.Y;
-
-		if(u == N){
-			break;
-		}	
-
-		for(auto next : adj[u]){
-			int &nv = next.X;
-			int &nw = next.Y;
-			if(visited[nv]) continue;
-
-			que[re++] = {nv, nw};
-			visited[nv] = 1;
+void dijkstra(){
+	for(int i=1;i<=N;i++){
+		for(int j=0;j<=K;j++){
+			dist[i][j] = INF;
 		}
 	}
+	
+	priority_queue<tlii, vector<tlii>, greater<tlii>> pq;
 
-	sort(hmap[N].begin(), hmap[N].end(), greater<int>());
-	while(K--){
-		hmap.erase(hmap.begin());
+	dist[1][0] = 0;
+	pq.push({0, 1, 0}); // { dist, node, useK }
+
+	while(!pq.empty()){
+		auto [d, v, k] = pq.top(); pq.pop();
+
+		if(dist[v][k] < d) continue;
+
+		for(auto &[nv, nw] : adj[v]){
+			ll nd = d + nw;
+
+			if(dist[nv][k] > nd) {
+				dist[nv][k] = nd;
+				pq.push({dist[nv][k], nv, k});
+			}
+
+			if(k < K && dist[nv][k+1] > d){
+				dist[nv][k+1] = d;
+				pq.push({dist[nv][k+1], nv, k+1});
+			}
+		}
 	}
-
-
-
 }
 
 int main(int argc, char **argv){
-#ifndef ONLINE_JUDGE
-	freopen("data/d8339.txt", "r", stdin);
-#endif
+	#ifndef ONLINE_JUDGE
+		freopen("data/d8339.txt", "r", stdin);
+	#endif	
+
 	scanf("%d%d%d", &N,&M,&K);
 	for(int i=0; i<M; i++){
 		int u,v,w; scanf("%d%d%d", &u,&v,&w);
-		adj[u].push_back({v,w});
-		adj[v].push_back({u,w});
+		adj[u].push_back({v, w});
+		adj[v].push_back({u, w});
 	}
-	bfs();
+
+	dijkstra();
+
+	ll ans = INF;
+	for(int k=0; k<=K; k++){
+		ans = min(ans, dist[N][k]);
+	}
+	printf("%lld\n", ans);
 }
