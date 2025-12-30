@@ -12,7 +12,7 @@ using namespace std;
 
 
 int card[100] = {0};
-bool visit[100] = { false };
+bool visited[100] = { false };
 
 
 
@@ -36,13 +36,13 @@ void dfs(string sum, int d) {
 
 
 	for(int i=0; i<N; i++) {
-		if(visit[i]) continue;
+		if(visited[i]) continue;
 
 
 
-		visit[i] = true;
+		visited[i] = true;
 		dfs(sum + to_string(card[i]), d+1);
-		visit[i] = false;
+		visited[i] = false;
 
 	}
 

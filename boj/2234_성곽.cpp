@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
-bool visit[50][50] = {0};
+bool visited[50][50] = {0};
 int W,H;
 
 const int dw[5] = {0,-1,1,0,0};
@@ -69,10 +69,10 @@ int bfs(int now) {
 
 
 				if(nw<0 || nw>=W || nh<0 || nh>=H) continue;
-				if(visit[nh][nw]) continue;
+				if(visited[nh][nw]) continue;
 
 
-				visit[nh][nw] = true;
+				visited[nh][nw] = true;
 				Q.push(nh*50 + nw);
 
 				area++;
@@ -163,7 +163,7 @@ int main() {
 
 	for(int h=0; h<H; h++) {
 		for(int w=0; w<W; w++) {
-			if(!visit[h][w]) {
+			if(!visited[h][w]) {
 
 				int area = bfs(h*50 + w);
 
@@ -186,7 +186,7 @@ int main() {
 
 
 	vector<int> newmax(4, -9999);
-	memset(visit, 0, sizeof(visit));
+	memset(visited, 0, sizeof(visited));
 
 
 	for(int k=0; k<4; k++) {
@@ -197,7 +197,7 @@ int main() {
 					if(k==0 && wall[h][w].E_) {
 						wall[h][w].E_ = false;
 
-						if(!visit[h][w]) {
+						if(!visited[h][w]) {
 
 							int area = bfs(h*50 + w);
 
@@ -213,7 +213,7 @@ int main() {
 					if(k==1 && wall[h][w].W_) {
 						wall[h][w].W_ = false;
 
-						if(!visit[h][w]) {
+						if(!visited[h][w]) {
 
 							int area = bfs(h*50 + w);
 
@@ -227,7 +227,7 @@ int main() {
 					if(k==2 && wall[h][w].N_) {
 						wall[h][w].N_ = false;
 
-						if(!visit[h][w]) {
+						if(!visited[h][w]) {
 
 							int area = bfs(h*50 + w);
 
@@ -242,7 +242,7 @@ int main() {
 					if(k==3 && wall[h][w].S_) {
 						wall[h][w].S_ = false;
 
-						if(!visit[h][w]) {
+						if(!visited[h][w]) {
 
 							int area = bfs(h*50 + w);
 
@@ -253,7 +253,7 @@ int main() {
 						}
 						wall[h][w].S_ = true;
 					}
-				memset(visit, 0, sizeof(visit));
+				memset(visited, 0, sizeof(visited));
 			}
 		}
 	}

@@ -4,7 +4,7 @@ using namespace std;
 
 int board[300][300]={0};
 int increase[300][300]={0};
-int visit[300][300] = {0};
+int visited[300][300] = {0};
 
 int N,M;
 
@@ -74,7 +74,7 @@ bool CheckConnection() {
 
   queue<Pair> Q;
   Q.push(p);
-	visit[p.r_][p.c_] = -1;
+	visited[p.r_][p.c_] = -1;
 
   while (!Q.empty()) {
     int qsize = Q.size();
@@ -88,9 +88,9 @@ bool CheckConnection() {
 
         if (nc < 0 || nc >= M || nr < 0 || nr >= N) continue;
         if (board[nr][nc] == 0) continue;
-        if (visit[nr][nc] == -1) continue;
+        if (visited[nr][nc] == -1) continue;
 
-        visit[nr][nc] = -1;
+        visited[nr][nc] = -1;
         Pair next(nr, nc);
         Q.push(next);
       }
@@ -105,10 +105,10 @@ bool CheckConnection() {
   //   }
   //   cout << endl;
   // }
-  // cout << "VISIT: "<< endl;
+  // cout << "visited: "<< endl;
   // for (int i = 0; i < N; i++) {
   //   for (int j = 0; j < M; j++) {
-  //     cout << visit[i][j] << ' ';
+  //     cout << visited[i][j] << ' ';
   //   }
   //   cout << endl;
   // }
@@ -116,7 +116,7 @@ bool CheckConnection() {
 
   for (int i = 0; i < N; i++) {
     for (int j = 0; j < M; j++) {
-      if (visit[i][j] > 0) {
+      if (visited[i][j] > 0) {
         return true;
       }
     }
@@ -143,7 +143,7 @@ int main() {
 
 		for(int i=0;i<N;i++){
 			for(int j=0;j<M;j++){
-				visit[i][j] = board[i][j];
+				visited[i][j] = board[i][j];
 			}
 		}
 
@@ -155,7 +155,7 @@ int main() {
     int num=0;
     for (int i = 0; i < N; i++) {
       for (int j = 0; j < M; j++) {
-        if (visit[i][j] == 0) {
+        if (visited[i][j] == 0) {
           num++;
         }
       }

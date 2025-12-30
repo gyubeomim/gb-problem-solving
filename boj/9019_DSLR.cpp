@@ -7,7 +7,7 @@ using namespace std;
 
 
 
-bool visit[10001];
+bool visited[10001];
 
 
 
@@ -164,9 +164,9 @@ string bfs(int in, int target) {
 
 
 
-				if(visit[nn]) continue;
+				if(visited[nn]) continue;
 
-				visit[nn] = true;
+				visited[nn] = true;
 
 
 
@@ -219,7 +219,7 @@ int main() {
 		string ans = bfs(in, target);
 
 
-		memset(visit, 0, sizeof(visit));
+		memset(visited, 0, sizeof(visited));
 
 
 		cout << ans << '\n';

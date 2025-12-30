@@ -8,7 +8,7 @@ using namespace std;
 
 
 char board[50][50] = {};
-bool visit[50][50] = {0};
+bool visited[50][50] = {0};
 
 
 
@@ -113,9 +113,9 @@ int bfs(int dest) {
 
 				if(nr < 0 || nr >= R || nc < 0 || nc >= C) continue;
 				if(board[nr][nc] == '*' || board[nr][nc] == 'X') continue;
-				if(visit[nr][nc]) continue;
+				if(visited[nr][nc]) continue;
 
-				visit[nr][nc] = true;
+				visited[nr][nc] = true;
 				Q.push(nr * 50 + nc);
 			}
 
@@ -181,7 +181,7 @@ int main() {
 
 			if(c == 'S') {
 				starts.push_back(i*50 +j);
-				visit[i][j] = true;
+				visited[i][j] = true;
 			}
 
 

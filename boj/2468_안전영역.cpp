@@ -6,7 +6,7 @@ using namespace std;
 
 
 int board[100][100]={0};
-int visit[100][100]={0};
+int visited[100][100]={0};
 
 
 int N;
@@ -26,7 +26,7 @@ int coff[4] = {0,0,-1,1};
 int bfs(int now) {
   int result = 0;
 
-  memset(visit, 0, sizeof(visit));
+  memset(visited, 0, sizeof(visited));
 
 
 
@@ -35,7 +35,7 @@ int bfs(int now) {
     for (int j = 0; j < N; j++) {
 
       if (board[i][j] <= now && board[i][j] > 0) {
-        visit[i][j] = 2;
+        visited[i][j] = 2;
 				// cout << i << ", " << j << endl;
       }
 
@@ -45,7 +45,7 @@ int bfs(int now) {
   for (int i = 0; i < N; i++) {
     for (int j = 0; j < N; j++) {
 
-      if (visit[i][j] == 1 || visit[i][j] == 2) {
+      if (visited[i][j] == 1 || visited[i][j] == 2) {
         continue;
       }
 
@@ -53,7 +53,7 @@ int bfs(int now) {
 
       queue<int> Q;
       Q.push(i * 100 + j);
-      visit[i][j] = 1;
+      visited[i][j] = 1;
 
       while (!Q.empty()) {
         int qsize = Q.size();
@@ -70,11 +70,11 @@ int bfs(int now) {
 
             if (nr < 0 || nr >= N || nc < 0 || nc >= N)
               continue;
-            if (visit[nr][nc] == 2 || visit[nr][nc] == 1)
+            if (visited[nr][nc] == 2 || visited[nr][nc] == 1)
               continue;
             if (board[nr][nc] <= now) continue;
 
-            visit[nr][nc] = 1;
+            visited[nr][nc] = 1;
             Q.push(nr * 100 + nc);
 
             // cout << "nrnc: " << nr << ", " << nc << endl;

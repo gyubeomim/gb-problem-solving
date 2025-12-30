@@ -5,16 +5,16 @@ using namespace std;
 
 
 vector<vector<int>> g;
-vector<int> visit;
+vector<int> visited;
 
 
 int ans=0;
 
 void dfs(int now) {
-  visit[now] = 1;
+  visited[now] = 1;
 
   for (int i = 0; i < g[now].size(); i++) {
-    if (!visit[g[now][i]]) {
+    if (!visited[g[now][i]]) {
       dfs(g[now][i]);
       ans++;
     }
@@ -30,7 +30,7 @@ int main() {
 	cin >> N;
 
 	g.resize(N+1);
-	visit.resize(N+1);
+	visited.resize(N+1);
 
 	int M; 
 	cin >> M;

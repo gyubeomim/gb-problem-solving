@@ -12,7 +12,7 @@ const int dy[4] = {0,0,-1,1};
 
 char board[12][6] = {};
 
-bool visit[12][6] = {0};
+bool visited[12][6] = {0};
 
 
 int cont=1;
@@ -82,7 +82,7 @@ void ApplyGravity() {
 
 
 void FindBubbles(int x, int y, char color) {
-	visit[x][y] = true;
+	visited[x][y] = true;
 
 	coords.push_back(make_pair(x,y));
 
@@ -93,7 +93,7 @@ void FindBubbles(int x, int y, char color) {
 
 
 		if(nx < 0 || nx >=12 || ny < 0 || ny >= 6) continue;
-		if(visit[nx][ny]) continue;
+		if(visited[nx][ny]) continue;
 		if(board[nx][ny] != board[x][y]) continue;
 
 
@@ -184,7 +184,7 @@ int main() {
 			for(int j=0; j<6; j++) {
 
 
-				if(board[i][j] != '.' && !visit[i][j]) {
+				if(board[i][j] != '.' && !visited[i][j]) {
 
 					// cout << "ij: " << i << ", " << j << endl;
 
@@ -205,7 +205,7 @@ int main() {
 					}
 
 
-					memset(visit, 0, sizeof(visit));
+					memset(visited, 0, sizeof(visited));
 
 				}
 

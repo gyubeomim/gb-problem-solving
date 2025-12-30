@@ -3,7 +3,7 @@
 using namespace std;
 
 
-int visit[100][100] = {0};
+int visited[100][100] = {0};
 
 
 
@@ -42,11 +42,11 @@ int bfs(int x, int y) {
 
 
 				if(nx < 0 || nx >=N || ny < 0 || ny>=M) continue;
-				if(visit[nx][ny]) continue;
+				if(visited[nx][ny]) continue;
 
 				// cout << nx << ", " << ny << endl;
 
-				visit[nx][ny] = 1;
+				visited[nx][ny] = 1;
 				q.push(nx*100 + ny);
 				area += 1;
 			}
@@ -79,7 +79,7 @@ int main() {
 
 		for(int a=x1;a<x2; a++){
 			for(int b=y1; b<y2; b++) {
-				visit[a][b] = 1;
+				visited[a][b] = 1;
 				// cout << "x1ay1b: " << x1+a << ", " << y1+b << endl;
 			}
 		}
@@ -98,7 +98,7 @@ int main() {
 		for(int y=0; y<M; y++) {
 			int area=0;
 
-			if(!visit[x][y]) {
+			if(!visited[x][y]) {
 				area = bfs(x,y);
 			}
 

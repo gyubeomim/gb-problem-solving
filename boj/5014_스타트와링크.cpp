@@ -3,12 +3,12 @@
 using namespace std;
 int F,S,G,U,D;
 int dx[2];
-int visit[1000001];
+int visited[1000001];
 
 void bfs(){
 	queue<int> Q;
 	Q.push(S);
-	visit[S] = 1;
+	visited[S] = 1;
 
 	while(!Q.empty()){
 		int qsize = Q.size();
@@ -17,7 +17,7 @@ void bfs(){
 			Q.pop();
 
 			if(curr == G){
-				cout << visit[curr]-1 << '\n';
+				cout << visited[curr]-1 << '\n';
 				return;
 			}
 
@@ -26,8 +26,8 @@ void bfs(){
 
 				if(next > F || next < 1) continue;
 
-				if(visit[next] == 0){
-					visit[next] = visit[curr] + 1;
+				if(visited[next] == 0){
+					visited[next] = visited[curr] + 1;
 					Q.push(next);
 				}
 
