@@ -1,19 +1,6 @@
-#include <cstdio>
-#include <iostream>
-#include <vector>
-#include <string>
-#include <queue>
-#include <map>
-#include <stack>
-#include <deque>
-#include <set>
-#include <cmath>
-#include <algorithm>
-#include <cstring>
-
+#include <bits/stdc++.h>
 #define pii pair<int,int>
 #define ll long long
-
 using namespace std;
 
 int main(int argc, char **argv){

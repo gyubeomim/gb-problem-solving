@@ -1,5 +1,5 @@
-#include <cstdio>
-#include <cstring>
+#include <bits/stdc++.h>
+using namespace std;
 
 constexpr int LM = 105;
 

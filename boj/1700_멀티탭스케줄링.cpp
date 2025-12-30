@@ -1,0 +1,49 @@
+#include <cstdio>
+#include <iostream>
+
+using namespace std;
+
+int main() {
+  int N, K;
+  int use[100]={0}, plan[100]={0};
+  cin >> N >> K;
+
+  for(int i=0; i<K; i++) {
+    cin >> plan[i];
+  }
+
+  int result=0;
+  for(int i=0; i<K; i++) {
+    bool inUse=false;
+    for(int j=0; j<N; j++) {
+      if(use[j] == plan[i]) {
+        inUse=true;
+        break;
+      }
+    }
+    if(inUse) continue;
+
+    for(int j=0; j<N; j++) {
+      if(use[j] == 0) {
+        use[j] = plan[i];
+        inUse=true;
+        break;
+      }
+    }
+    if(inUse) continue;
+
+    int swap, val=-1;
+    for(int j=0; j<N; j++) {
+      int term=0;
+      for(int k=i+1; k<K && use[j]!=plan[k]; k++) term++;
+      if(term > val ) {
+        swap = j;
+        val = term;
+      }
+    }
+    result++;
+    use[swap] = plan[i];
+  }
+  cout << result << endl;
+  return 0;
+}

@@ -1,5 +1,5 @@
 // sqrt decomposition
-#include <cstdio>
+#include <bits/stdc++.h>
 
 const int LM = 100005;
 const int MOD = 256;
