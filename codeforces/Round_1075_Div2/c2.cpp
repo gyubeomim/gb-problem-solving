@@ -13,6 +13,36 @@ int main(int argc, char **argv){
 #endif
 	int T; scanf("%d", &T);
 	while(T--) {
-		
+		int n; scanf("%d", &n);
+
+		int pw=1; while(pw<n) pw<<=1;
+		if(pw == n) { puts("-1"); continue; }
+
+		int A[200005];
+		char used[200005];
+		memset(used, 0, sizeof(used));
+
+		A[n]=1;
+		used[1]=1;
+
+		for(int i=2; i<=n-1; i++){
+			A[i] = 1 ^ i;
+			used[A[i]] = 1;
+		}
+
+		int missing = 0;
+		for(int i=1; i<=n; i++){
+			if(!used[i]) {missing = i; break;}
+		}
+
+		A[1] = missing;
+
+		int r = n - pw/2;
+		swap(A[1], A[r]);
+
+		for(int i=1; i<=n; i++){
+			printf("%d ", A[i]);
+		}puts("");
+
 	}
 }
