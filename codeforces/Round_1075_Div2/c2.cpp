@@ -15,8 +15,7 @@ int main(int argc, char **argv){
 	while(T--) {
 		int n; scanf("%d", &n);
 
-		int pw=1; while(pw<n) pw<<=1;
-		if(pw == n) { puts("-1"); continue; }
+		if((n & (n-1)) == 0) { printf("-1\n"); continue; }
 
 		int A[200005];
 		char used[200005];
@@ -37,6 +36,7 @@ int main(int argc, char **argv){
 
 		A[1] = missing;
 
+		int pw=1; while(pw<n) pw<<=1;
 		int r = n - pw/2;
 		swap(A[1], A[r]);
 
