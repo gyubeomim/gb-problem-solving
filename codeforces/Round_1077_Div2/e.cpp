@@ -1,4 +1,5 @@
 #include <bits/stdc++.h>
+#define rnt register int
 #define FASTIO cin.tie(0); cout.tie(0); ios_base::sync_with_stdio(0);
 #define X first
 #define Y second
@@ -8,7 +9,10 @@ using namespace std;
 
 int main(int argc, char **argv){
 #ifndef ONLINE_JUDGE
-	freopen("data/1171.txt", "r", stdin);
+	freopen("data/1077e.txt", "r", stdin);
 #endif
-	
+	int T; scanf("%d", &T);
+	while(T--) {
+		
+	}
 }
