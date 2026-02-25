@@ -1,12 +1,12 @@
 *
-!.gitignore
+!boj/
+!jungol/
+!algospot/
+!codeforces/
+!swea/
+!data/
 
-!boj
-!jungol
-!algospot
-!codeforces
-!swea
-!data
+!*.cpp
 
 tttt.cpp
 nnnn.cpp
